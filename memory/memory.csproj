@@ -46,15 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <!-- Modèle (logique pure, pas d'UI) -->
     <Compile Include="Carte.cs" />
     <Compile Include="EtatCarte.cs" />
+    <Compile Include="Jeu.cs" />
+    <Compile Include="ConfigPartie.cs" />
+
+    <!-- Vue principale (Form1 découpée en fichiers partiels) -->
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jeu.cs" />
+    <Compile Include="Grille.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logique.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Timers.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+
+    <!-- Fenêtres secondaires -->
+    <Compile Include="Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <!-- Services -->
+    <Compile Include="Sons.cs" />
+
+    <!-- Point d'entrée -->
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -83,6 +109,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <!-- Images copiées automatiquement dans bin\Debug à chaque build -->
     <Content Include="Assets\Images\dos.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
